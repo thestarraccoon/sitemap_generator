@@ -1,0 +1,11 @@
+{
+  "autoload": {
+    "psr-4": {
+      "SitemapGenerator\\Src\\": "src/"
+    }
+  },
+  "require": {
+    "ext-json": "*",
+    "ext-dom": "*"
+  }
+}
