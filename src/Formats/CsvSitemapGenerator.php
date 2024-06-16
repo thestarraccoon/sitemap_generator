@@ -25,7 +25,7 @@ class CsvSitemapGenerator extends ASitemapGenerator
      */
     protected function writeToFile($pages, $pathToSaveFile): int
     {
-        $fp = fopen($pathToSaveFile, 'w');
+        $fp = $this->safeFopen($pathToSaveFile, 'w+');
 
         if ($fp === false) {
             throw new WriteToFileException("Не удалось открыть файл на запись: $pathToSaveFile");
@@ -57,5 +57,35 @@ class CsvSitemapGenerator extends ASitemapGenerator
         }
 
         return true;
+    }
+
+    /**
+     * If there are no directories in the project where the file will be created,
+     * then this function creates these directories, and then creates the file
+     *
+     * @param string $filePath The full path to the file
+     * @param string $mode File opening mode
+     * @return resource|false Is the file open or not
+     * @throws WriteToFileException Throwing an exception if a failure
+     */
+    private function safeFopen($pathToSaveFile, $mode) {
+
+        $pathToSaveFile = str_replace('\\', '/', $pathToSaveFile);
+
+        $directories = pathinfo($pathToSaveFile, PATHINFO_DIRNAME);
+
+        if (!is_dir($directories)) {
+            if (!mkdir($directories, 0755, true) && !is_dir($directories)) {
+                throw new WriteToFileException("Не удалось создать директорию: $directories");
+            }
+        }
+
+        $fileOpenResult = fopen($pathToSaveFile, $mode);
+
+        if ($fileOpenResult === false) {
+            throw new WriteToFileException("Не удалось открыть файл: $pathToSaveFile");
+        }
+
+        return $fileOpenResult;
     }
 }
