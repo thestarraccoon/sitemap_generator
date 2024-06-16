@@ -1,10 +1,20 @@
 {
+  "name": "thestarraccoon/sitemap-generation-library",
+  "description": "Library for generating sitemaps in JSON, XML, and CSV formats",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Чекулаев Максим",
+      "email": "thestarraccoon@gmail.com"
+    }
+  ],
   "autoload": {
     "psr-4": {
       "SitemapGenerator\\Src\\": "src/"
     }
   },
   "require": {
+    "php": ">=7.4",
     "ext-json": "*",
     "ext-dom": "*"
   }
