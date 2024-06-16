@@ -19,5 +19,6 @@
     "ext-dom": "*"
   },
   "minimum-stability": "stable",
-  "license": "MIT"
+  "license": "MIT",
+  "version": "1.0.9"
 }
