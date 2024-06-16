@@ -87,7 +87,7 @@ $pages = [
 ];
 
 $fileType = 'xml';
-$pathToFile = '/generates/sitemap.docx';
+$pathToFile = '/generates/sitemap.xml';
 
 $main = new SitemapGenerateInit($pages, $fileType, $pathToFile);
 $main->initSitemapGenerate();
