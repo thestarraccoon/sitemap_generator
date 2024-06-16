@@ -2,8 +2,6 @@
 
 namespace SitemapGenerator\Src;
 
-require __DIR__ . '/../vendor/autoload.php';
-
 use SitemapGenerator\Src\Enum\FileTypesEnumeration;
 use SitemapGenerator\Src\Exceptions\InvalidDataFormatException;
 use SitemapGenerator\Src\Exceptions\UnsupportedFormatException;
