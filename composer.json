@@ -16,6 +16,8 @@
   "require": {
     "php": ">=7.4",
     "ext-json": "*",
-    "ext-dom": "*"
-  }
+    "ext-dom": "*",
+    "thestarraccoon/sitemap-generation-library": "^1.0"
+  },
+  "minimum-stability": "stable"
 }
